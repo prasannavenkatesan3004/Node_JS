@@ -1,0 +1,20 @@
+/// Array of user objects
+const users = [
+  { name: "Prasanna", age: 23 },
+  { name: "Kiran", age: 30 },
+  { name: "Meena", age: 25 },
+  { name: "Arun", age: 23 },
+  { name: "Divya", age: 28 }
+];
+// Filter by age
+const ageFilter = users.filter(user => user.age === 23);
+console.log("Users aged 23:", ageFilter);
+// Filter by name
+const nameFilter = users.filter(user => user.name.toLowerCase() === "meena");
+console.log("User named Meena:", nameFilter);
+// Both in Same
+const filterUsers = (key, value) => {
+  return users.filter(user => String(user[key]).toLowerCase() === String(value).toLowerCase());
+};
+console.log("Filter by name 'Kiran':", filterUsers("name", "Divya"));
+console.log("Filter by age 23:", filterUsers("age", 25));

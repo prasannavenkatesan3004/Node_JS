@@ -1,0 +1,21 @@
+const readline = require("readline");
+// Create an interface for user input
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+const user = {};
+rl.question("Enter your name: ", (name) => {
+  user.name = name;
+  rl.question("Enter your age: ", (age) => {
+    user.age = age;
+    rl.question("Enter your email: ", (email) => {
+      user.email = email;
+      console.log("\n=== Form Submitted ===");
+      console.log(`Name: ${user.name}`);
+      console.log(`Age: ${user.age}`);
+      console.log(`Email: ${user.email}`);
+      rl.close();
+    });
+  });
+});

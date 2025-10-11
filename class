@@ -1,0 +1,36 @@
+// Base class
+class User {
+  constructor(name, email) {
+    this.name = name;
+    this.email = email;
+  }
+  login() {
+    console.log(`${this.name} logged in.`);
+  }
+  logout() {
+    console.log(`${this.name} logged out.`);
+  }
+}
+// Subclass that extends User
+class AdminUser extends User {
+  constructor(name, email, role) {
+    super(name, email); // Call parent constructor
+    this.role = role;
+  }
+  deleteUser(user) {
+    console.log(`Admin ${this.name} deleted user ${user.name}.`);
+  }
+  displayInfo() {
+    console.log(`Admin Name: ${this.name}, Email: ${this.email}, Role: ${this.role}`);
+  }
+}
+// Create objects
+const user1 = new User("Prasanna", "prasanna@mail.com");
+const admin1 = new AdminUser("Meena", "meena@admin.com", "super-admin");
+// Use methods
+user1.login();
+user1.logout();
+console.log("\n--- Admin Actions ---");
+admin1.displayInfo();
+admin1.login();
+admin1.deleteUser(user1);

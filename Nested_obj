@@ -1,0 +1,74 @@
+// destructuringPractice.js
+console.log("=== Basic Object Destructuring ===");
+const user = { name: "Prasanna", age: 23, city: "Trichy" };
+const { name, age } = user;
+console.log(`Name: ${name}, Age: ${age}`);
+// Nested_obj
+console.log("\n===Nested Object Destructuring ===");
+const student = {
+  id: 101,
+  personal: {
+    name: "Meena",
+    address: { city: "Chennai", pincode: 600001 }
+  },
+  subjects: ["Math", "Science", "English"]
+};
+const {
+  personal: {
+    name: studentName,
+    address: { city: studentCity, pincode }
+  },
+  subjects
+} = student;
+console.log(`Student: ${studentName}, City: ${studentCity}, Pincode: ${pincode}`);
+console.log("Subjects:", subjects);
+// ---------------------------------------------------
+console.log("\n===Array Destructuring ===");
+const colors = ["Red", "Green", "Blue"];
+const [first, second, third] = colors;
+console.log(`Colors: ${first}, ${second}, ${third}`);
+// ---------------------------------------------------
+console.log("\n===Nested Array Destructuring ===");
+const numbers = [10, [20, 30], 40];
+const [a, [b, c], d] = numbers;
+console.log(`a=${a}, b=${b}, c=${c}, d=${d}`);
+// ---------------------------------------------------
+console.log("\n===Array of Objects Destructuring ===");
+const users = [
+  { name: "Kiran", age: 30 },
+  { name: "Divya", age: 28 },
+  { name: "Arun", age: 23 }
+];
+const [user1, user2] = users;
+console.log("User1:", user1.name);
+console.log("User2 Age:", user2.age);
+users.forEach(({ name, age }) => console.log(`${name} is ${age} years old.`));
+// ---------------------------------------------------
+console.log("\n===Combined Object + Array Destructuring ===");
+const company = {
+  name: "TechCorp",
+  location: "Bangalore",
+  employees: [
+    { name: "Prasanna", role: "Developer" },
+    { name: "Meena", role: "Designer" },
+    { name: "Kiran", role: "Manager" }
+  ]
+};
+const {
+  name: companyName,
+  employees: [ , { name: emp2, role: role2 } ]
+} = company;
+console.log(`Company: ${companyName}`);
+console.log(`Second Employee: ${emp2} (${role2})`);
+// ---------------------------------------------------
+console.log("\n===Destructuring with Default Values ===");
+const person = { name: "Arun" };
+const { name: personName, age: personAge = 25 } = person;
+console.log(`${personName} is ${personAge} years old.`);
+// ---------------------------------------------------
+console.log("\n===Function Parameter Destructuring ===");
+const displayUser = ({ name, age, city }) => {
+  console.log(`${name} is ${age} years old and lives in ${city}.`);
+};
+const userInfo = { name: "Divya", age: 28, city: "Coimbatore" };
+displayUser(userInfo);

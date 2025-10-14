@@ -1,0 +1,23 @@
+// fileOperations.js
+
+// Import the built-in 'fs' module
+const fs = require('fs');
+
+// Write to a file
+fs.writeFile('example.txt', 'Hello, this is written by Node.js!', (err) => {
+  if (err) {
+    console.error('Error writing file:', err);
+    return;
+  }
+  console.log('✅ File written successfully!');
+
+  // Now read the file after writing
+  fs.readFile('example.txt', 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading file:', err);
+      return;
+    }
+    console.log('📄 File contents:');
+    console.log(data);
+  });
+});
